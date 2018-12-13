@@ -1,24 +1,20 @@
-#include "stdafx.h"
+//#include<conio.h>
 #include <iostream>
-#include <conio.h>
+#include <cmath>
 
 using namespace std;
+
 void Arr_print(int N, double **arr)
 {
 	int temp = 0;
 	temp = N;
-	for (int j = 0; j < N; j++) {
-
-		cout << "|   ";
-		while (temp != 0)
-		{
-			cout << arr[j][N - temp] << "  ";
-			temp = temp - 1;
-		}
-		cout << endl;
-		temp = N;
-
-	}
+	for (int i = 0; i < N; i++) {
+  for (int j = 0; j < N; j++) {
+    cout << arr[i][j] << " ";
+  }
+  cout << endl;
+}
+	
 
 }
 void Matrix_convert(int i_max, int j_max, int N, double **arr)
@@ -115,7 +111,8 @@ int main()
 			}
 			Enter_arr_A(N, arr_A);
 			Find_max(N, arr_A);
-			_getch();
+		system("pause");
 	return 0;
 }
+
 
