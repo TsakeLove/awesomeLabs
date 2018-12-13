@@ -13,7 +13,7 @@ float arithmetic_root(int p, int n, int a) {
        return x_n;
   }
 int fact(int a) {
-       if (a = 1) 
+       if (a == 1) 
        {
          return 1; 
            
