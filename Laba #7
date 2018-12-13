@@ -4,70 +4,88 @@
 Всі від’ємні елементи масиву збільшити на величину отриманої суми.
 */
 #include <iostream>
-#include<ctime>
-using namespace std;
-int index_min = 0;
-int index_max = 0;
-int sum = 0;
-void Ger(int *arr,int en) 
-{
-  srand(time(nullptr));
-  for (int i=0;i<en;i++) 
-  arr[i]=rand() % 100 - 50;
-}
+ #include<ctime>
+ using namespace std;
+ int index_min = 0;
+ int index_max = 0;
+ int sum = 0;
+ void Ger(int *arr,int en) 
+ {
+   srand(time(nullptr));
+   for (int i=0;i<en;i++) 
+   arr[i]=rand() % 100 - 50;
+ }
 
-void Viv(int arr[],int en) 
-{
-      for (int i=0;i<en;i++) 
-      cout<<arr[i]<<" ";
-}
-int min(int arr[],int en,int &index_min)
-{
-    int num_min = arr[0];
-    for (int i=0;i<en;i++) {if(num_min>arr[i]){num_min=arr[i];index_min=i;}} return index_min;
-}
-int max(int arr[],int en,int &index_max)
-{
-    int num_max = arr[0];
-    for (int i=0;i<en;i++) {if (num_max<arr[i]) {num_max=arr[i];index_max=i;}} return index_max;
-}
-int summa(int arr[],int &index_min, int &index_max, int &sum)
-{
-  if (index_min<index_max)
-  {
-      for (int i=index_min;i<=index_max;i++)
-      sum+=arr[i];
-  }
-  else { 
-      for (int i=index_max;i<=index_min;i++)
+ void Viv(int arr[],int en) 
+ {
+       for (int i=0;i<en;i++) 
+       cout<<arr[i]<<" ";
+ }
+ int min(int arr[],int en,int &index_min)
+ {
+     int num_min = arr[0];
+     for (int i=0;i<en;i++) 
+     {
+         if ( num_min > arr[i] ) 
+         {
+             num_min=arr[i];
+             index_min=i;
+         }
+         
+     } 
+     return index_min;
+ }
+ int max(int arr[],int en,int &index_max)
+ {
+     int num_max = arr[0];
+     for (int i=0;i<en;i++) 
+     {
+         if (num_max<arr[i]) 
+          {
+              num_max=arr[i];
+              index_max=i;
+          }
+         
+     } 
+     return index_max;
+ }
+ int summa(int arr[],int index_min, int index_max, int &sum)
+ {
+   if (index_min<index_max)
+   {
+       for (int i=index_min;i<=index_max;i++)
        sum+=arr[i];
-       }
-  return sum;
-}
-void replace(int arr[],int en, int &sum)
-{
-    for (int i=0;i<en;i++)
-    {
-        if(arr[i]<0)
-        {
-            arr[i]+=sum;
+   }
+   else { 
+       for (int i=index_max;i<=index_min;i++)
+        sum+=arr[i];
         }
-    }
-}
-void Viv1(int arr[],int en) 
-{
-      for (int i=0;i<en;i++) 
-      cout<<arr[i]<<" ";
-}
-int main()
-{
-  const int n = 10;
-  int a[n];
-  Ger(a,n);
-  Viv(a,n);
-  cout<<endl<<"Min = "<<" "<<min(a,n,index_min)<<endl;
-  cout<<"Max = "<<" "<<max(a,n,index_max)<<endl;
-  cout<<"Summa = "<<" "<<summa(a,index_min,index_max,sum)<<endl;
-  replace(a,n,sum);
-  Viv(a,n);
-}
+   return sum;
+ }
+ void replace(int arr[],int en, int sum)
+ {
+     for (int i=0;i<en;i++)
+     {
+         if(arr[i]<0)
+         {
+             arr[i]+=sum;
+         }
+     }
+ }
+ void Viv1(int arr[],int en) 
+ {
+       for (int i=0;i<en;i++) 
+       cout<<arr[i]<<" ";
+ }
+ int main()
+ {
+   const int n = 10;
+   int a[n];
+   Ger(a,n);
+   Viv(a,n);
+   cout<<endl<<"Min = "<<" "<<min(a,n,index_min)<<endl;
+   cout<<"Max = "<<" "<<max(a,n,index_max)<<endl;
+   cout<<"Summa = "<<" "<<summa(a,index_min,index_max,sum)<<endl;
+   replace(a,n,sum);
+   Viv(a,n);
+ }
