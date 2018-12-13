@@ -1,3 +1,4 @@
+// Цакєлов Ігор, ІП-82б лаба 8
 #include "stdafx.h"
 #include <iostream>
 #include <conio.h>
