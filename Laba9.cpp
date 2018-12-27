@@ -8,8 +8,6 @@
 void input_str(char * str) {
    cin.getline(str, 1000);
 }
-char str1_a[1000][1000];
-char str2_b[1000][1000];
 void  devision(char * str, char * p, char sent[1000][1000], int & k) {
    k = 0;
    p = strtok(str, ", ");
@@ -41,6 +39,8 @@ int main() {
    int count1 = 0;
    int count2 = 0;
    char p[] = "a";
+   char str1_a[1000][1000];
+   char str2_b[1000][1000];
    devision(str1, p, str1_a, count1);
    devision(str2, p, str2_b, count2);
    int x = 0;
