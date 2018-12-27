@@ -4,10 +4,12 @@
 #include <iomanip>
 #include <cstring> 
 #include <stdio.h>
-   using namespace std;
+using namespace std;
+
 void input_str(char * str) {
    cin.getline(str, 1000);
 }
+
 void  devision(char * str, char * p, char sent[1000][1000], int & k) {
    k = 0;
    p = strtok(str, ", ");
@@ -17,6 +19,7 @@ void  devision(char * str, char * p, char sent[1000][1000], int & k) {
       k++;
    }
 }
+
 void delete_str(char str1_a[1000][1000], char str2_b[1000][1000], int count1, int count2, int &x) {
    for (int i = 0; i < count1; i++) {
       for (int j = 0; j < count2; j++) {
@@ -31,6 +34,7 @@ void delete_str(char str1_a[1000][1000], char str2_b[1000][1000], int count1, in
       cout << str1_a[i] << " ";
    }
 }
+
 int main() {
    char str1[1000];
    char str2[1000];
